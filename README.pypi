@@ -1,0 +1,5 @@
+Django Async Thumbnails
+======================
+
+Django app for Asynchronous thumbnailing for remote storages like Google Cloud Storage, Amazon S3,...
+It's built on top of sorl-thumbnail and it uses celery to create thumbnails asynchronously.
