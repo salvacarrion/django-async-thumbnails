@@ -12,7 +12,7 @@ pip install https://github.com/salvacarrion/django-async-thumbnails.git/zipball/
 pip install -e git+git@github.com:salvacarrion/django-async-thumbnails.git
 ```
 
-Set up
+Setup
 -------
 
 Django Async Thumbnails needs pickle for the Celery serialization, so add this lines in `settings.py`:
@@ -26,7 +26,9 @@ CELERY_ACCEPT_CONTENT = ['pickle']
 
 > Note: In Python 3.0, the accelerated versions are considered implementation details of the pure Python versions
 
-Additionally, you have to set this repo as the sorl's thumbnail backend as explained above.
+Then register 'asyncthumbnail', in the 'INSTALLED_APPS' section of your project's settings.
+
+Finally, you have to set this repo as the sorl's thumbnail backend as explained above.
 
     THUMBNAIL_BACKEND = 'asyncthumbnail.backend.QueuedThumbnailBackend'
 
