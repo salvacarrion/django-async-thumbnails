@@ -1,7 +1,7 @@
 # Django Async Thumbnails
 Asynchronous thumbnailing for remote storages (Google Cloud Storage, Amazon S3, Azure Storage,...)
 
-**Django Async Thumbnails** is an extension for `sorl-thumbnail` so it can generate the thumbnails in an asynchronous way.
+**Django Async Thumbnails** is an extension for `sorl-thumbnail` so it can generate thumbnails in an asynchronous way.
 Therefore, you only have to set this repo as its `THUMBNAIL_BACKEND`.
 
 Install
@@ -36,14 +36,14 @@ Finally, you have to set this repo as the sorl's thumbnail backend as explained 
 Typical problems
 ======
 
-Is too slow with remotes storages (Google Cloud Storage, Amazon S3, Azure Storage,...)
+It's too slow with remotes storages (Google Cloud Storage, Amazon S3, Azure Storage,...)
 -------------------------
 
 This problem is usually related to how the APIs of these services work. For instance,
 if you are using something like _django-storages, Apache Libcloud or similar_, the problem is that they
-asks directly to the remote storage everytime you use a function such as `exists`, `url`, `size`,... 
+ask directly to the remote storage everytime you use a function such as `exists`, `url`, `size`,... 
 
-This adds an impressive lag to our code, up to to 3s/file. So if a reponse has 10 images (urls) it 
+This adds an impressive lag to our code, up to  3s/file. So if a response has 10 images (URLs) it 
 would take up more than 30s.
 
 **Fix:** To solve this problem you can create a class that inherits from the storage class so that
@@ -57,7 +57,7 @@ class FastStorage(Storage):
 ```
 
 Additionally, you can use caches to store metadata and only check in the DFS if there is a miss. 
-(_I'd recommend to use something like Redis_)
+(_I'd recommend using something like Redis_)
 
 
 Celery doesn't detect any task
